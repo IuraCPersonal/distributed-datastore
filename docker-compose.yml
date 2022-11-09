@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+
+  server-alpha:
+    build: ./build
+    ports:
+      - "3000:3000"
+      - "3003:3003"
+      - "3033:3033"
+    environment:
+      - USING_DOCKER_COMPOSE=1
+      - NAME=alpha
+
+  server-beta:
+    build: ./build
+    ports:
+      - "4000:4000"
+      - "4004:4004"
+      - "4044:4044"
+    environment:
+      - USING_DOCKER_COMPOSE=1
+      - NAME=beta
+
+  server-gamma:
+    build: ./build
+    ports:
+      - "5000:5000"
+      - "5005:5005"
+      - "5055:5055"
+    environment:
+      - USING_DOCKER_COMPOSE=1
+      - NAME=gamma
+
+  server-delta:
+    build: ./build
+    ports:
+      - "8000:8000"
+      - "8008:8008"
+      - "8088:8088"
+    environment:
+      - USING_DOCKER_COMPOSE=1
+      - NAME=delta
