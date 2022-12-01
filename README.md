@@ -1,13 +1,12 @@
 # A DISTRIBUTED IN MEMORY KEY-VALUE DATASTORE
 
-The current work represents 40% of the _third_ laboratory work for the `PR` course at UTM.
+The current work represents 70% of the _third_ laboratory work for the `PR` course at UTM.
 
 ## TODO
 
-- [x]  Basic setup of minimum amount of 3 servers which run in docker containers and communicate with each other and
-partition leader assigning
-- [x]  `HTTP` datastore interface for performing `CRUD` operations
-- [x] Basic datastore implementation where all data is saved on partition leader and is replicated on each cluster server
+- [x]  Distributed storage logic implemented. Data have to be distributed on the whole cluster. Servers should store different data and not just storing the replica of partition leader
+- [x]  Fault tolerance implementation. Data have to be distributed on the servers but duplicated in order to keep datastore available to return any required data even in case half of the servers will go down
+- [x] Implementation of logging of cluster servers internal communication and logs of cluster external communication
 
 ## INSTALATION
 

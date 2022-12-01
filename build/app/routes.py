@@ -6,29 +6,39 @@ from flask import request
 from flask_restful import Resource, Api
 
 from app import app
-from app.modules import datastore, SERVER_DATA, CLUSTER
+from app.utils.ManageCluster import ManageCluster
+from app.modules import datastore, SERVER_DATA, CLUSTER, SERVERS_LIST, NAME
 
 api = Api(app)
 
 class HTTPHandler(Resource):
+    # GET Method
     def get(self):
         return json.dumps(datastore), 200
 
+    
+    # POST Method
     def post(self):
         content = request.get_json()
 
-        if SERVER_DATA['is_leader']:
-            for adj_node in SERVER_DATA['adj']:
-                _ = requests.post(
-                    url=f'http://server-{adj_node}:{CLUSTER[adj_node]["http"]}/',
-                    json=content
-                )
-                time.sleep(1)
+        datastore.update(content)
+
+        # Function to Distribute Data across the cluster.
+        ManageCluster.dist_data(datastore)
+
+        return json.dumps({'success': True}), 200
+
+    
+    # UPDATE Method
+    def update(self):
+        content = request.get_json()
 
         datastore.update(content)
 
         return json.dumps({'success': True}), 200
 
+
+    # DELETE Method
     def delete(self):
         key = request.args.get('key')
 

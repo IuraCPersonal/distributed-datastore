@@ -4,31 +4,27 @@
         "host": "alpha-server",
         "http": "3000",
         "tcp": "3003",
-        "udp": "3033",
-        "adj": ["beta", "gamma", "delta"]
+        "udp": "3033"
     },
     "beta": {
         "is_leader": false,
         "host": "beta-server",
         "http": "4000",
         "tcp": "4004",
-        "udp": "4044",
-        "adj": ["alpha", "gamma", "delta"]
+        "udp": "4044"
     },
     "gamma": {
         "is_leader": false,
         "host": "gamma-server",
         "http": "5000",
         "tcp": "5005",
-        "udp": "5055",
-        "adj": ["beta", "alpha", "delta"]
+        "udp": "5055"
     },
     "delta": {
         "is_leader": false,
         "host": "delta-server",
         "http": "8000",
         "tcp": "8008",
-        "udp": "8088",
-        "adj": ["beta", "gamma", "alpha"]
+        "udp": "8088"
     }
 }

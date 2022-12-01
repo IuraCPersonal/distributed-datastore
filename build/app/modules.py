@@ -12,5 +12,6 @@ def read_json(file):
 
 CLUSTER = read_json('cluster.json')
 SERVER_DATA = CLUSTER[NAME]
+SERVERS_LIST = ['alpha', 'beta', 'gamma', 'delta']
 
 datastore = dict()
