@@ -9,7 +9,6 @@ services:
       - "3003:3003"
       - "3033:3033"
     environment:
-      - USING_DOCKER_COMPOSE=1
       - NAME=alpha
 
   server-beta:
@@ -19,7 +18,6 @@ services:
       - "4004:4004"
       - "4044:4044"
     environment:
-      - USING_DOCKER_COMPOSE=1
       - NAME=beta
 
   server-gamma:
@@ -29,7 +27,6 @@ services:
       - "5005:5005"
       - "5055:5055"
     environment:
-      - USING_DOCKER_COMPOSE=1
       - NAME=gamma
 
   server-delta:
@@ -39,5 +36,4 @@ services:
       - "8008:8008"
       - "8088:8088"
     environment:
-      - USING_DOCKER_COMPOSE=1
       - NAME=delta
