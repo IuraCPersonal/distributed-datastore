@@ -6,10 +6,11 @@ from app.modules import SERVER_DATA, SERVERS_LIST, CLUSTER, NAME
 
 
 class ManageCluster:
+    has_run = 0
 
     @staticmethod
     def dist_data(datastore):
-        if SERVER_DATA['is_leader']:
+        if SERVER_DATA['is_leader'] and ManageCluster.has_run == 0:
             content = datastore.copy()
 
             # Split data in chunks of 75%.
@@ -33,5 +34,5 @@ class ManageCluster:
                         pass
 
                     time.sleep(1)
-
-            print("Data Distributed...")
+    
+        ManageCluster.has_run += 1

@@ -1,12 +1,15 @@
 # A DISTRIBUTED IN MEMORY KEY-VALUE DATASTORE
 
-The current work represents 70% of the _third_ laboratory work for the `PR` course at UTM.
+<img src="./docs/architecture_diagram.png" />
 
-## TODO
+The current work represents 100% of the _third_ laboratory work for the `PR` course at UTM.
 
-- [x]  Distributed storage logic implemented. Data have to be distributed on the whole cluster. Servers should store different data and not just storing the replica of partition leader
-- [x]  Fault tolerance implementation. Data have to be distributed on the servers but duplicated in order to keep datastore available to return any required data even in case half of the servers will go down
-- [x] Implementation of logging of cluster servers internal communication and logs of cluster external communication
+## DONE
+
+- [x] Data synchronization. Servers should periodically sync between them in order to ensure data entegrity.
+- [x] Load balancing implementation. Partition leader have to distribute network requests for any data operation across the cluster service in order to prevent high load only on dedicated service.
+- [x] File storage support by FTP and realtime communication by WebSockets.
+
 
 ## INSTALATION
 
@@ -45,6 +48,16 @@ cd distributed-datastore
     ```
     docker compose up build
     ```
+
+## HOW TO USE
+
+You can use either `Postman` or just the `curl` command. Here is an example of a request:
+
+```bash
+curl -i -X POST -H "Content-Type: application/json" -d '{"username":"s1mpi", "password":"faf"}' http://127.0.0.1:3000
+```
+
+To make use of the websockets, visit any desired server's URL on the `/client` endpoint.
 
 ## TASK
 
